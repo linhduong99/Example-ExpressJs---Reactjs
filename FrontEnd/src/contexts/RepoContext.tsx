@@ -5,7 +5,7 @@ interface RepoContextProps {
   repos: IRepo[];
   filteredRepos: IRepo[];
   setRepos: React.Dispatch<React.SetStateAction<IRepo[]>>;
-  getRepoDetail: (repoId: string) => IRepo | undefined;
+  getRepoDetail: (repoId: number) => IRepo | undefined;
   selectedLanguage: string;
   setSelectedLanguage: React.Dispatch<React.SetStateAction<string>>;
 }
@@ -26,7 +26,7 @@ export const RepoProvider: React.FC<{ children: ReactNode }> = ({
   const [repos, setRepos] = useState<IRepo[]>([]);
   const [selectedLanguage, setSelectedLanguage] = useState<string>("");
 
-  const getRepoDetail = (repoId: string) => {
+  const getRepoDetail = (repoId: number) => {
     return repos.find((repo) => repo.id === repoId);
   };
 

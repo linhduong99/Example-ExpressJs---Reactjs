@@ -3,7 +3,7 @@ import axios from "axios";
 
 // Hàm để lấy dữ liệu từ API
 const fetchRepos = async () => {
-  const response = await axios.get("http://localhost:3001/repos");
+  const response = await axios.get("http://localhost:3001/repos"); // TODO fix hard code
   return response.data;
 };
 

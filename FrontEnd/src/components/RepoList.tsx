@@ -1,18 +1,12 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
-import { useQuery } from "react-query";
-import axios from "axios";
 import { useRepoContext } from "../contexts/RepoContext";
-
-const fetchRepos = async () => {
-  const { data } = await axios.get("/repos");
-  return data;
-};
+import useRepos from "../hooks/useRepos";
 
 const RepoList: React.FC = () => {
   const { repos, setRepos, filteredRepos, setSelectedLanguage } =
     useRepoContext();
-  const { data, error, isLoading } = useQuery("repos", fetchRepos);
+  const { data, error, isLoading } = useRepos();
 
   useEffect(() => {
     if (data) {
